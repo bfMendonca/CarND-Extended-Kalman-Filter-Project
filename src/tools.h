@@ -2,6 +2,7 @@
 #define TOOLS_H_
 
 #include <vector>
+#include <iostream>
 #include "Eigen/Dense"
 
 class Tools {
@@ -15,6 +16,16 @@ class Tools {
    * Destructor.
    */
   virtual ~Tools();
+
+  /**
+    * A helper method for calculating the F matrix fom the dt
+    */
+  Eigen::MatrixXd CalculateStateTransitionMatrix( const double & dt );
+
+  /**
+    * A helper method for calculating the Proccess Noise Covariance Matrix
+    */
+  Eigen::MatrixXd CalculateProccessNosieCovMatrix( const double & dt );
 
   /**
    * A helper method to calculate RMSE.
